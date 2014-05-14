@@ -44,6 +44,7 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 gem 'mina'
+gem 'unicorn'
 
 gem 'foundation-rails', github: 'zurb/foundation-rails'
 
