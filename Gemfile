@@ -43,6 +43,8 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+gem 'mina'
+
 gem 'foundation-rails', github: 'zurb/foundation-rails'
 
 gem 'money', '6.0.1'
