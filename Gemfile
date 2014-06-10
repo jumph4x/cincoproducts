@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.4'
+gem 'rails', '~> 4.0.4'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -49,6 +49,6 @@ gem 'unicorn'
 gem 'foundation-rails', github: 'zurb/foundation-rails'
 
 gem 'money', '6.0.1'
-gem 'spree', '2.2.1'
+gem 'spree', '~> 2.2.1'
 gem 'spree_gateway', :git => 'https://github.com/spree/spree_gateway.git', :branch => '2-2-stable'
 gem 'spree_auth_devise', :git => 'https://github.com/spree/spree_auth_devise.git', :branch => '2-2-stable'

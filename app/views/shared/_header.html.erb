@@ -1,5 +1,39 @@
-<header id="header">
-  <figure id="logo" ><%= image_tag 'logos/toys_chemicals.jpg'-%></figure>
-  <%= render :partial => 'spree/shared/nav_bar' %>
-  <%= render :partial => 'spree/shared/main_nav_bar' if store_menu? %>
-</header>
+<% @taxons = Spree::Taxonomy.first.root.children %>
+
+<nav class="top-bar" data-topbar>
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="/" id="logo"><%= image_tag 'logos/cinco.png'-%></a></h1>
+    </li>
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <%= form_tag spree.products_path, :method => :get do %>
+      <ul class="right">
+        <li><a href="/">Home</a></li>
+        <li class="has-dropdown">
+          <a href="#">Shop</a>
+          <ul class="dropdown">
+            <% @taxons.each do |taxon| %>
+              <li><%= link_to taxon.name, nested_taxons_path(taxon) -%></li>
+            <% end %>
+          </ul>
+        </li>
+        <li class="has-form">
+          <div class="row collapse">
+            <div class="small-9 columns">
+              <%= search_field_tag :keywords, params[:keywords], :placeholder => Spree.t(:search) %>
+            </div>
+            <div class="small-3 columns">
+              <%= submit_tag Spree.t(:search), :name => nil, :class => 'button expand' %>
+            </div>
+          </div>
+        </li>
+      </ul>
+    <% end %>
+
+  </section>
+</nav>

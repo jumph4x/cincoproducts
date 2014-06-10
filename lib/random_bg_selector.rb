@@ -1,13 +1,9 @@
 class RandomBgSelector
-  def absolute_path
-    "http://cachemonet.com/#{random_path}"
-  end
-
   def random_path
-    json[rand(json.size - 1)]
+    files[rand(files.size - 1)]
   end
 
-  def json
-    ActiveSupport::JSON.decode(File.open('bg.json'))
+  def files
+    @files ||= Dir["app/assets/images/banners/*"].map{|f| "/assets/#{f.split('/')[-2..-1].join('/')}" }
   end
 end
