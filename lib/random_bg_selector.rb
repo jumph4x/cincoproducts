@@ -4,6 +4,6 @@ class RandomBgSelector
   end
 
   def files
-    @files ||= Dir["app/assets/images/banners/*"].map{|f| "/assets/#{f.split('/')[-2..-1].join('/')}" }
+    @files ||= Dir["app/assets/images/banners/*"].map{|f| "#{f.split('/')[-2..-1].join('/')}" }
   end
 end
