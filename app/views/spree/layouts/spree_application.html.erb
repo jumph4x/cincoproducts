@@ -9,7 +9,7 @@
     <%= render :partial => 'shared/head' %>
   </head>
 
-  <body style="background-image: url('/assets/bg.jpg')">
+  <body style="background-image: url(<%= asset_path '/assets/bg.jpg' %>)">
     <div class="container">
       <%= render :partial => 'shared/header' %>
 
