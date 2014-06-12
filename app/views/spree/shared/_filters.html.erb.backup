@@ -4,7 +4,7 @@
     <% params[:search] ||= {} %>
     <%= hidden_field_tag 'per_page', params[:per_page] %>
     <% filters.each do |filter| %>
-      <% labels = filter[:labels] || filter[:conds].map {|m,c| [m,m]} %>
+      <% labels = filter[:labels] %>
       <% next if labels.empty? %>
       <div class="navigation" data-hook="navigation">
         <h6 class="filter-title"> <%= filter[:name] %> </h6>
@@ -12,12 +12,14 @@
           <% labels.each do |nm,val| %>
             <% label = "#{filter[:name]}_#{nm}".gsub(/\s+/,'_') %>
             <li class="nowrap">
-              <input type="checkbox"
-                     id="<%= label %>"
-                     name="search[<%= filter[:scope].to_s %>][]"
-                     value="<%= val %>"
-                     <%= params[:search][filter[:scope]] && params[:search][filter[:scope]].include?(val.to_s) ? "checked" : "" %> />
-              <label class="nowrap" for="<%= label %>"> <%= nm %> </label>
+              <label class="nowrap small-text" for="<%= label %>" >
+                <input type="checkbox"
+                       id="<%= label %>"
+                       name="search[<%= filter[:scope].to_s %>][]"
+                       value="<%= val %>"
+                       <%= params[:search][filter[:scope]] && params[:search][filter[:scope]].include?(val.to_s) ? "checked" : "" %> />
+                <%= nm %>
+              </label>
             </li>
           <% end %>
         </ul>

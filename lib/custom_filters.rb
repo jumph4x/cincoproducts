@@ -5,11 +5,11 @@ module CustomFilters
 
   def CustomFilters.price_filter
     v = Spree::Price.arel_table
-    conds = [ [ Spree.t(:under_price, price: format_price(10))     , v[:amount].lteq(10)],
-              [ "#{format_price(10)} - #{format_price(45)}"        , v[:amount].in(10..45)],
-              [ "#{format_price(45)} - #{format_price(100)}"        , v[:amount].in(45..100)],
-              [ "#{format_price(100)} - #{format_price(250)}"        , v[:amount].in(100..250)],
-              [ Spree.t(:or_over_price, price: format_price(250)) , v[:amount].gteq(250)]]
+    conds = [ [ Spree.t(:under_price, price: "$10")     , v[:amount].lteq(10)],
+              [ "$10 - $45"        , v[:amount].in(10..45)],
+              [ "$45 - $100"        , v[:amount].in(45..100)],
+              [ "$100 - $250"        , v[:amount].in(100..250)],
+              [ Spree.t(:or_over_price, price: "$250") , v[:amount].gteq(250)]]
     {
       name:   Spree.t(:price_range),
       scope:  :price_range_any,
