@@ -23,6 +23,7 @@ module Cincoproducts
 
 
     config.autoload_paths += %W(#{config.root}/lib)
+    config.autoload_paths += %W(#{config.root}/lib/cincoproducts)
     #config.autoload_paths += Dir.glob(File.join(config.root, "**/**/**/*.rb"))
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

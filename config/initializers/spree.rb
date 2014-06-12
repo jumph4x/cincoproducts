@@ -9,8 +9,8 @@ Spree.config do |config|
   # Example:
   # Uncomment to override the default site name.
   # config.site_name = "Spree Demo Site"
-  config.allow_ssl_in_production = true
 end
 
 Spree.user_class = "Spree::User"
 Devise.secret_key = "fd7f4f4a57a3ea90646a95b62b53f967b814468e36b557540e92707e6a7a923ffa4a96d45a76d89a598ceff84dba377bf301"
+

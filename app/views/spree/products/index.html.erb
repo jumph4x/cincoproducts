@@ -22,6 +22,7 @@
 <% else %>
 
   <div data-hook="homepage_products">
+    <h1>Premium <%= @taxon ? @taxon.name : 'Cinco' %> Products</h1>
     <%= render :partial => 'spree/shared/products', :locals => { :products => @products, :taxon => @taxon } %>
   </div>
 <% end %>
