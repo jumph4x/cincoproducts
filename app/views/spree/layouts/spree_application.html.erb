@@ -14,16 +14,16 @@
     <div class="container">
       <%= render :partial => 'shared/header' %>
 
-      <div id="wrapper" class="row pad-top-1">
+      <div id="wrapper" class="row pad-top-3">
         <%# breadcrumbs(@taxon) %>
 
         <% if content_for? :sidebar %>
-          <div class="large-3 columns">
+          <div class="large-3 columns pad-top-1">
             <%= render :partial => 'spree/shared/sidebar' %>
           </div>
         <% end %>
 
-        <div id="content" class="columns <%= content_for?(:sidebar) ? "large-9" : "large-12" %>">
+        <div id="content" class="pad-top-1 columns <%= content_for?(:sidebar) ? "large-9" : "large-12" %>">
           <%= flash_messages %>
           <%= yield %>
         </div>
