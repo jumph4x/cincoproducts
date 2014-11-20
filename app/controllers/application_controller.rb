@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   before_filter :redirect_to_www
 
   def redirect_to_www
-    return true if !Rails.env.production? || request.host.match(/www\./)
-    redirect_to "http://www.cincoproducts.com"
+    return true if !Rails.env.production? || !request.host.match(/www\./)
+    redirect_to "http://cincoproducts.com"
   end
 end
